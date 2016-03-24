@@ -1,0 +1,26 @@
+.leftUnmovedMenu {
+	float: left;
+	width: 200px;
+}
+
+.context {
+	font-size: 100px;
+	background-color: #a9a9a9;
+}
+
+.mainContent {
+	margin-left: 200px;
+}
+
+.grayBackground {
+	background-color: gray;
+}
+
+.bigText {
+	font-size: 45px;
+}
+
+body {
+	background-image: url(img/background.jpg);
+	cursor: url(img/cursorCat.png), auto  !important;
+}
