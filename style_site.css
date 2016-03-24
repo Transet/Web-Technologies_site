@@ -1,6 +1,9 @@
 .leftUnmovedMenu {
 	float: left;
 	width: 200px;
+	background-color: #f7f7f7 !important;
+	/*-- listener event scrool div position: fixed; */
+	vertical-align: top; 
 }
 
 .context {
@@ -23,4 +26,8 @@
 body {
 	background-image: url(img/background.jpg);
 	cursor: url(img/cursorCat.png), auto  !important;
+}
+* {
+	max-width: 1600px;
+	margin: 0 auto;
 }
