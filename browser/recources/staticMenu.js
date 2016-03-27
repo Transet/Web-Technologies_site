@@ -1,12 +1,12 @@
 window.addEventListener("scroll", function() {
-	/*get element*/
-	var el = document.getElementById("leftToolbar");
-	if(el === null) {
-		return; /* return if no leftToolbar in document */
+	var leftToolbar = document.getElementById("leftToolbar");
+	var headerImage = document.getElementById("headerImage");
+	if(leftToolbar === null || headerImage === null ) {
+		return;
 	}
-	if ( el.getBoundingClientRect().top <= 0 && el.style.position !== "fixed") {
-		el.style.position = "fixed";
-	} else if( window.scrollY <= 150 && el.style.position !== "") {
-		el.style.position = "";
+	if ( leftToolbar.getBoundingClientRect().top <= 0 && leftToolbar.style.position !== "fixed") {
+		leftToolbar.style.position = "fixed";
+	} else if( window.scrollY <= headerImage.getBoundingClientRect().height && leftToolbar.style.position !== "") {
+		leftToolbar.style.position = "";
 	}
 });
