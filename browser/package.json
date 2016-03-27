@@ -1,0 +1,28 @@
+{
+  "name": "browser",
+  "version": "1.0.0",
+  "description": "The site is made for anyone who loves cats.",
+  "main": "hello_world.js",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "expres": "^0.0.5",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Transet/Web-Technologies_site.git"
+  },
+  "keywords": [
+    "catlovers"
+  ],
+  "author": "Dmitry, Tsykunov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Transet/Web-Technologies_site/issues"
+  },
+  "homepage": "https://github.com/Transet/Web-Technologies_site#readme"
+}
