@@ -10,7 +10,8 @@
 					display: none;
 				}
 				.mainContent {
-					margin-left: 5px;
+					margin-left: 10px;
+					margin-right: 10px;
 				}
 			}
 		</style>
@@ -37,11 +38,12 @@
 		<div class="mainContent">
 			<div class="bigText"> Сайт для любителей кошек. Здесь вы можете найти все интересющие вас породы.</div><br/>
 			<% data.forEach(function(datum) {%>
-				<div class="content">
+				<div class="content" id="<%= datum.en_name %>">
 					<image class="contentImage" src ="<%= datum.imagepath %>">
 					<h5><%= datum.name %></h5>
-					<span class="catDescription" ><%= datum.smalldescription %></span>
-					<span class="contentLink"><a href="/<%= datum.en_name %>">Узнать больше об этой породе →</a></span>
+					<span class="catDescription" ><%= datum.smalldescription %>
+					<br/>
+					<span class="contentLink"><a href="/<%= datum.en_name %>">Узнать больше →</a></span></span>
 				</div>
 				<br/>
 			<% }); %>
