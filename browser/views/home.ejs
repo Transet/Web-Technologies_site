@@ -22,32 +22,26 @@
 		<div class="leftUnmovedMenu noDisplayOnSmallScreen" id="leftToolbar">
 			<menu >
 				<li><a href="/home" >Главная страница </a></li>
-				<li><a href="/maineCoon" >Мей-кун порода </a></li>
-				<li><a href="/persian" >Персидская порода </a></li>
-				<li><a href="/british" >Британская порода </a></li>
-				<li><a href="/siamese" >Сиамская породка </a></li>
+				<% data.forEach(function(datum) {%>
+					<li>
+						<a href="/<%= datum.en_name %>"><%= datum.name %></a>
+					</li>
+				<% }); %>
 			</menu>
 		</div>
 		
 		<!-- content block -->
 		<div class="mainContent">
-			<span class="bigText grayBackground"> Сайт для любителей кошек. Здесь вы можете найти все интересющие вас породы.</span>
-			<div class="content">
-				<span>Эта страница посвящена мейкунам</span></br>
-				<image src="/recources/img/mei_kun.jpg" >
-			</div><br/>
-			<div class="content">
-				<span>Эта страница посвящена персам</span></br>
-				<image src="/recources/img/persian.jpg" >
-			</div><br/>
-			<div class="content">
-				<span>Эта страница посвящена британцам</span></br>
-				<image src="/recources/img/british.jpg" >
-			</div><br/>
-			<div class="content">
-				<span>Эта страница посвящена сиамской породе</span></br>
-				<image src="/recources/img/siam.jpg" >
-			</div><br/>
+			<div class="bigText"> Сайт для любителей кошек. Здесь вы можете найти все интересющие вас породы.</div><br/>
+			<% data.forEach(function(datum) {%>
+				<div class="content">
+					<image class="contentImage" src ="<%= datum.imagepath %>">
+					<h5><%= datum.name %></h5>
+					<span class="catDescription" ><%= datum.smalldescription %></span>
+					<span class="contentLink"><a href="/<%= datum.en_name %>">Узнать больше об этой породе →</a></span>
+				</div>
+				<br/>
+			<% }); %>
 		</div>
 	</body>
 </html>

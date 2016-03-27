@@ -4,26 +4,43 @@
 	width: 200px;
 	background-color: #f7f7f7 !important;
 }
+.contentLink {
+	font-size: 25px;
+	float: right;
+}
 
 .content {
 	font-size: 100px;
-	background-color: #a9a9a9;
+	background-color: #fff;
+	max-width: 1200px;
+	min-height: 307px;
+	box-shadow: 5px 5px 5px 0px;
+}
+
+.contentImage  {
+    float:left;
+    margin: 7px 7px 7px 0;
+}
+
+.catName {
+	font-size: 50px;
+}
+
+.catDescription {
+	font-size: 15px;
 }
 
 .mainContent {
 	margin-left: 200px;
 }
 
-.grayBackground {
-	background-color: gray;
-}
-
 .bigText {
 	font-size: 45px;
+	background-color: #fff;
 }
 
 body {
-	background-image: url(img/background.jpg);
+	background-image: url(img/bg_body.gif);
 	cursor: url(img/cursorCat.png), auto  !important;
 }
 * {

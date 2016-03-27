@@ -22,10 +22,11 @@
 		<div class="leftUnmovedMenu noDisplayOnSmallScreen" id="leftToolbar">
 			<menu >
 				<li><a href="/home" >Главная страница </a></li>
-				<li><a href="/maineCoon" >Мей-кун порода </a></li>
-				<li><a href="/persian" >Персидская порода </a></li>
-				<li><a href="/british" >Британская порода </a></li>
-				<li><a href="/siamese" >Сиамская породка </a></li>
+				<% data.forEach(function(datum) {%>
+					<li>
+						<a href="/<%= datum.en_name %>"><%= datum.name %></a>
+					</li>
+				<% }); %>
 			</menu>
 		</div>
 		
