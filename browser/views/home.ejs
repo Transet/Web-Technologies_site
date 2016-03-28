@@ -63,7 +63,7 @@
 					<p><select id="selectDelItem" size="1" >
 					<option selected disabled>Выберите породу</option>
 					<% data.forEach(function(datum) {%>
-						<option value="<%= datum.id %>"><%= datum.name %></option>
+						<option class="<%= datum.en_name %>" value="<%= datum.id %>"><%= datum.name %></option>
 					<% }); %>
 					</select>
 					<button id="deleteBreedButton">Удалить</button>

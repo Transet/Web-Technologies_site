@@ -18,8 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			return;
 		}
 		makePostRequest("/del?id="+el.value);
-		var tmp = document.getElementById("'" + el.options[ el.selectedIndex ].text + "'");
-		tmp.outerHTML = "";
+		/* We can't get dynamicly added element. Get ALL and find neccessary */
+		var neccessaryClassName = el.options[ el.selectedIndex ].className ;
+		var all = document.getElementsByTagName('*');
+		for (var i = 0, len = all.length; i < len; i++) {
+			if (all[i].id === neccessaryClassName) {
+				var result = all[i];
+				result.outerHTML = "";
+				break;
+			}
+		}
 		var addSpoiler = document.getElementById('delSpoiler');
 		var checkbox = addSpoiler.children.item('checkbox');
 		checkbox.checked = false
