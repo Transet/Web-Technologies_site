@@ -1,22 +1,11 @@
-﻿/**
- * Throttle funtion:
- * throttle(callback, limit, [options]) 
- * time in milliseconds
- * example:
- * var throttled = throttle(updatePosition, 100, {leading: false});
- * {leading: false} - to disable the first call
- */
-function throttle (callback, limit, options) {
+﻿function throttle (callback, limit) {
 	var wait = false;
-    if( options ) {
-		wait = ((options.leading) ? true : false);
-	}
     return function () {
         if (!wait) {
-            callback.call();
             wait = true;
             setTimeout(function () {
-                wait = false;
+                callback.call();
+				wait = false;
             }, limit);
         }
     }
@@ -33,6 +22,6 @@ makeMenuFixed = function() {
 		leftToolbar.style.position = "";
 	}
 };
-var throttledScroll = throttle(makeMenuFixed, 100 , {leading: false});
+var throttledScroll = throttle(makeMenuFixed, 100 , {leading: true});
 
 window.addEventListener("scroll", throttledScroll);
