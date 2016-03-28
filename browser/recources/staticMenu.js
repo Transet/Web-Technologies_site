@@ -1,4 +1,4 @@
-window.addEventListener("scroll", function() {
+﻿window.addEventListener("scroll", function() {
 	var leftToolbar = document.getElementById("leftToolbar");
 	var headerImage = document.getElementById("headerImage");
 	if(leftToolbar === null || headerImage === null ) {

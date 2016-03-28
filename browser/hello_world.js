@@ -58,6 +58,20 @@ app.get('/siamese', function(req, res){
 	});
 });
 
+app.post('/add', function(req, res) {
+	db.run("INSERT INTO homepage (name,imagepath,smalldescription,en_name) VALUES (?,?,?,?)",req.query.name, req.query.imagepath, req.query.smalldescription, req.query.en_name, function(error) {
+		if(error) console.log(error);
+		res.send('ok');
+	})
+});
+
+app.post('/del', function(req, res) {
+	db.run("DELETE FROM homepage WHERE id="+req.query.id, function(error) {
+		if(error) console.log(error);
+		res.send('ok');
+	})
+});
+
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Listening on port 3000!');
 });

@@ -8,6 +8,32 @@
 	font-size: 25px;
 }
 
+textarea {
+    resize: none;
+}
+
+#addYourBreed {
+	font-size: 10px !important;
+}
+
+.error {
+	border-color: red;
+}
+
+.spoiler >  input + #addYourBreed {
+	display: none;
+}
+.spoiler >  input:checked + #addYourBreed {
+	display: block;
+}
+
+.spoilerDel >  input + #deleteBreed {
+	display: none;
+}
+.spoilerDel >  input:checked + #deleteBreed {
+	display: block;
+}
+
 .content {
 	font-size: 100px;
 	background-color: #fff;

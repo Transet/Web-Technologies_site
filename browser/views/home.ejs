@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="/recources/style_site.css">
 		<script src="/recources/staticMenu.js"></script>
+		<script src="/recources/addNdel.js"></script>
 		<style>
 			@media (max-width: 768px) {
 				.noDisplayOnSmallScreen {
@@ -35,7 +36,7 @@
 		</div>
 		
 		<!-- content block -->
-		<div class="mainContent">
+		<div id="mainContentId" class="mainContent">
 			<div class="bigText"> Сайт для любителей кошек. Здесь вы можете найти все интересющие вас породы.</div><br/>
 			<% data.forEach(function(datum) {%>
 				<div class="content" id="<%= datum.en_name %>">
@@ -47,6 +48,37 @@
 				</div>
 				<br/>
 			<% }); %>
+			<div id="addNeccessaryDivsHere"></div>
+			<br/>
+			<div id="addSpoiler" class="spoiler">
+				<input type="checkbox" >Добавить породу.		
+				<div class="content" id="addYourBreed" >
+					<image class="contentImage" src ="/recources/img/300x300.png">	
+					<br/>
+					<p><input placeholder="Имя породы" id="breedName" required></p>
+					<br/>
+					<p><input placeholder="Имя породы на английском" id="breedEn_name" required></p>
+					<br/>
+					<p><input type="url" placeholder="URL изображения" id="site" required></p>
+					<br/>
+					<p><textarea rows = "10" cols = "70" placeholder="Краткое описание породы" id="breedDescription" required></textarea></p>
+					<br/>
+					<button id="addBreedButton">Предложить</button>
+				</div>
+			<br/>
+			</div>
+			<div id="delSpoiler" class="spoilerDel">
+				<input type="checkbox" >Удалить породу.		
+				<div id="deleteBreed" >
+					<p><select id="selectDelItem" size="1" >
+					<option selected disabled>Выберите породу</option>
+					<% data.forEach(function(datum) {%>
+						<option value="<%= datum.id %>"><%= datum.name %></option>
+					<% }); %>
+					</select>
+					<button id="deleteBreedButton">Удалить</button>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
