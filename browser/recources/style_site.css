@@ -70,7 +70,39 @@ body {
 	background-image: url(img/bg_body.gif);
 	cursor: url(img/cursorCat.png), auto  !important;
 }
+
 * {
 	max-width: 1600px;
 	margin: 0 auto;
+}
+
+@media (max-width: 768px) { /*tablet and small screen */
+	.noDisplayOnSmallScreen {
+		display: none;
+	}
+	.mainContent {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.content {
+		font-size: 50px;
+	}
+	.bigText {
+		font-size: 30px;
+	}
+}
+
+@media (max-width: 425px) { /* Mobile L - 425px */
+	#headerImage {
+		display: none;
+	}
+	.bigText {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 375px) { /* Mobile M and smaller - 375px */
+	.contentImage {
+		display: none;
+	}
 }
