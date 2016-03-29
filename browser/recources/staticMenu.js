@@ -22,10 +22,10 @@ makeMenuFixed = function() {
 	if(leftToolbar === null || headerImage === null ) {
 		return;
 	}
-	if ( leftToolbar.getBoundingClientRect().top <= 0 && leftToolbar.style.position !== "fixed") {
+	if ( leftToolbar.getBoundingClientRect().top <= 10 && leftToolbar.style.position !== "fixed") {
 		leftToolbar.style.position = "fixed";
-		// +2 : border offset get from css #headerImage
-	} else if( window.scrollY <= headerImage.getBoundingClientRect().height + 2 && leftToolbar.style.position !== "") {
+		// 40 : border offset
+	} else if( window.scrollY <= headerImage.getBoundingClientRect().height + 40 && leftToolbar.style.position !== "") {
 		leftToolbar.style.position = "";
 	}
 };

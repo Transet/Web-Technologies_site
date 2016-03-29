@@ -2,7 +2,8 @@
 var express = require('express');
 var app = express();
 app.set('view.engine', 'ejs');
-var sqlite3 = require('sqlite3').verbose();
+var sqlite = require('sqlite3');
+var sqlite3 = sqlite.verbose();
 var db = new sqlite3.Database('sqlite_database/database.sqlite');
 
 app.get('/', function (req, res) {

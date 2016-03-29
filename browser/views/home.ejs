@@ -11,7 +11,11 @@
 	<body>
 		<!-- header block -->
 		<header>
-			<img id="headerImage" src="/recources/img/header.jpg"  width="100%">
+			<div class="noDisplayOnSmallScreen headerText">ПРО КОШЕК</div>
+			<div style="background:#666; width:100%; height:30px" ></div>
+			<div >
+				<img id="headerImage" src="/recources/img/header.jpg" width="100%" >
+			</div>
 		</header>
 		
 		<!-- menu block -->
@@ -36,7 +40,6 @@
 					<br/>
 					<span class="contentLink"><a href="/<%= datum.en_name %>">Узнать больше →</a></span></span>
 				</div>
-				<br/>
 			<% }); %>
 			<div id="addNeccessaryDivsHere"></div>
 			<br/>

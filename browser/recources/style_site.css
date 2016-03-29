@@ -1,15 +1,16 @@
 .leftUnmovedMenu {
 	float: left;
-	top: 0px;
-	width: 200px;
-	background-color: #f7f7f7 !important;
+	top: 7px;
 }
 .contentLink {
 	font-size: 25px;
 }
 
 #headerImage {
-	border-bottom: 2px solid BLACK;
+	border-bottom: 4px solid #666;
+	margin-bottom: 20px;
+	/*height: 150px;*/
+	width: 100%;
 }
 
 textarea {
@@ -38,19 +39,26 @@ textarea {
 	display: block;
 }
 
-.content {
-	font-size: 100px;
+h5 {
+	color: #666;
+	font-size: 60px;
+}
+
+.content { 
 	background-color: #fff;
 	max-width: 1200px;
-	min-height: 307px;
-	margin-left: 10px;
-	margin-right: 10px;
+	padding-right: 10px;
+	min-height: 314px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 30px;
 	box-shadow: 5px 5px 5px 0px;
 }
 
 .contentImage  {
     float:left;
-    margin: 7px 7px 7px 0;
+    margin-right: 7px;
+	padding: 7px;
 	display: block;
 	max-width: 300px;
 	max-height: 300px;
@@ -84,6 +92,15 @@ body {
 * {
 	max-width: 1600px;
 	margin: 0 auto;
+}
+.headerText {
+	font-size:60px;
+	font-weight:bold;
+	color:WHITE;
+	text-shadow: 1px 2px 2px #666;
+	padding-top: 5px;
+	padding-left: 10px;
+	position: absolute;
 }
 
 @media (max-width: 768px) { /*tablet and small screen */
@@ -132,6 +149,7 @@ body {
 }
 #navbar {
 	float: left;
+	margin-top: 7px;
 	background-color: #666;
 	padding-left: 5px;
 	width: 200px;
