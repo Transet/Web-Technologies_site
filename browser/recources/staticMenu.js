@@ -1,11 +1,16 @@
 ﻿function throttle (callback, limit) {
 	var wait = false;
+	var lastCall = false;
     return function () {
+		lastCall = true;
         if (!wait) {
+			lastCall = false;
             wait = true;
+            callback.call();
             setTimeout(function () {
-                callback.call();
 				wait = false;
+				if(lastCall)
+					callback.call();
             }, limit);
         }
     }
@@ -18,10 +23,11 @@ makeMenuFixed = function() {
 	}
 	if ( leftToolbar.getBoundingClientRect().top <= 0 && leftToolbar.style.position !== "fixed") {
 		leftToolbar.style.position = "fixed";
-	} else if( window.scrollY <= headerImage.getBoundingClientRect().height && leftToolbar.style.position !== "") {
+		// +2 : border offset get from css #headerImage
+	} else if( window.scrollY <= headerImage.getBoundingClientRect().height + 2 && leftToolbar.style.position !== "") {
 		leftToolbar.style.position = "";
 	}
 };
-var throttledScroll = throttle(makeMenuFixed, 100 , {leading: true});
+var throttledScroll = throttle(makeMenuFixed, 50);
 
 window.addEventListener("scroll", throttledScroll);

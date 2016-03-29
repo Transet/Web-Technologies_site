@@ -8,6 +8,10 @@
 	font-size: 25px;
 }
 
+#headerImage {
+	border-bottom: 2px solid BLACK;
+}
+
 textarea {
     resize: none;
 }
@@ -72,6 +76,7 @@ textarea {
 }
 
 body {
+	font-family: Ubuntu, sans-serif;
 	background-image: url(img/bg_body.gif);
 	cursor: url(img/cursorCat.png), auto  !important;
 }
@@ -111,3 +116,38 @@ body {
 		display: none;
 	}
 }
+
+#navbar ul{
+	display: none;
+	background-color: #f90;
+	position: absolute;
+	top: 100%;
+}
+
+#navbar li:hover ul { display: block; }
+#navbar, #navbar ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#navbar {
+	float: left;
+	background-color: #666;
+	padding-left: 5px;
+	width: 200px;
+}
+#navbar li {
+	float: left;
+	position: relative;
+}
+#navbar li a {
+	display: block;
+	padding: 6px;
+	width: 180px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+}
+#navbar ul li { float: none; }
+#navbar li:hover { background-color: #f90; }
+#navbar ul li:hover { background-color: #666; }

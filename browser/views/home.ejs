@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="/recources/style_site.css">
 		<script src="/recources/staticMenu.js"></script>
-		<script src="/recources/addNdel.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular&subset=Latin,Cyrillic">
 	</head>
 	<body>
 		<!-- header block -->
@@ -15,19 +15,20 @@
 		
 		<!-- menu block -->
 		<div class="leftUnmovedMenu noDisplayOnSmallScreen noDisplayOnMobileDevice" id="leftToolbar">
-			<menu >
+			<!--<menu >-->
+			<ul id="navbar">
 				<li><a href="/home" >Главная страница </a></li>
 				<% data.forEach(function(datum) {%>
 					<li>
 						<a href="/<%= datum.en_name %>"><%= datum.name %></a>
 					</li>
 				<% }); %>
-			</menu>
+			</ul>
+			<!--</menu>-->
 		</div>
 		
 		<!-- content block -->
 		<div id="mainContentId" class="mainContent">
-			<div class="bigText"> Сайт для любителей кошек. Здесь вы можете найти все интересющие вас породы.</div><br/>
 			<% data.forEach(function(datum) {%>
 				<div class="content" id="<%= datum.en_name %>">
 					<image class="contentImage" src ="<%= datum.imagepath %>">
