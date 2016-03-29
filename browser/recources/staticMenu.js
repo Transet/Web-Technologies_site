@@ -1,4 +1,4 @@
-﻿function throttle (callback, limit) {
+﻿function throttle (callback, limit ) {
 	var wait = false;
 	var lastCall = false;
     return function () {
@@ -9,8 +9,9 @@
             callback.call();
             setTimeout(function () {
 				wait = false;
-				if(lastCall)
+				if(lastCall) {
 					callback.call();
+				}
             }, limit);
         }
     }

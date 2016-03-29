@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="/recources/style_site.css">
 		<script src="/recources/staticMenu.js"></script>
+		<script src="/recources/addNdel.js"></script>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular&subset=Latin,Cyrillic">
 	</head>
 	<body>
@@ -15,7 +16,6 @@
 		
 		<!-- menu block -->
 		<div class="leftUnmovedMenu noDisplayOnSmallScreen noDisplayOnMobileDevice" id="leftToolbar">
-			<!--<menu >-->
 			<ul id="navbar">
 				<li><a href="/home" >Главная страница </a></li>
 				<% data.forEach(function(datum) {%>
@@ -24,7 +24,6 @@
 					</li>
 				<% }); %>
 			</ul>
-			<!--</menu>-->
 		</div>
 		
 		<!-- content block -->
