@@ -61,8 +61,25 @@ app.get('/siamese', function(req, res){
 app.post('/add', function(req, res) {
 	db.run("INSERT INTO homepage (name,imagepath,smalldescription,en_name) VALUES (?,?,?,?)",req.query.name, req.query.imagepath, req.query.smalldescription, req.query.en_name, function(error) {
 		if(error) console.log(error);
-		res.send('ok');
+		else {
+			res.send('ok');
+		}
 	})
+});
+
+app.get('/getLastKey', function(req, res) {
+	var execquery = 'SELECT id FROM homepage WHERE name = "'+req.query.name+'" AND imagepath = "'+req.query.imagepath+'" AND smalldescription = "'+req.query.smalldescription+'" AND en_name = "'+req.query.en_name+'" ';
+	db.get(execquery, [] , 
+			function(err, row) {
+				if(err) console.log("error: " + err);
+			else {
+				res.writeHead(200, {
+					'Content-Type': 'text/plain',
+					'Access-Control-Allow-Origin' : '*'
+				});
+				res.end(JSON.stringify({ id: row.id }));
+			}
+	});
 });
 
 app.post('/del', function(req, res) {

@@ -9,8 +9,19 @@
 	'<span class="contentLink"><a href="/'+en_name+'">Узнать больше ></a></span></span> '+
 	'</div> ';
 	document.getElementById('addNeccessaryDivsHere').appendChild(newDiv);
-}
+	var el = document.getElementById('selectDelItem');
+	var ID = getLastAddedKey("name="+name+"&imagepath="+imagepath+
+			"&smalldescription="+description+"&en_name="+en_name);
+	var newOption = document.createElement("option");
+	newOption.className = en_name;
+	newOption.value = ID;
+	newOption.innerHTML = name;
+	el.appendChild(newOption);
+};
 
+getLastAddedKey = function(string) {
+	return makeGetRequest('/getLastKey?' + string);
+};
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('deleteBreedButton').addEventListener('click', function() {
 		var el = document.getElementById('selectDelItem');
@@ -18,8 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			return;
 		}
 		makePostRequest("/del?id="+el.value);
-		/* We can't get dynamicly added element. Get ALL and find neccessary */
 		var neccessaryClassName = el.options[ el.selectedIndex ].className ;
+		el.options[el.options["selectedIndex"]].remove();
+		/* We can't get dynamicly added element. Get ALL and find neccessary */
 		var all = document.getElementsByTagName('*');
 		for (var i = 0, len = all.length; i < len; i++) {
 			if (all[i].id === neccessaryClassName) {
@@ -64,6 +76,18 @@ makePostRequest = function(string) {
 	var request = new XMLHttpRequest();
 	request.open('POST', string);
 	request.send();
+};
+
+makeGetRequest = function(string) {
+	var request = new XMLHttpRequest();
+	request.open('GET', string, false);
+	request.send();
+	if (request.status != 200) {
+		console.log( request.status + ': ' + request.statusText );
+		return;
+	} else {
+		return JSON.parse(request.response).id;
+	}
 };
 
 document.addEventListener('DOMContentLoaded', function () {
