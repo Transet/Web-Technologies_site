@@ -1,8 +1,11 @@
 {
-  "name": "browser",
+  "name": "Web-Technologies_site",
   "version": "1.0.0",
   "description": "The site is made for anyone who loves cats.",
   "main": "hello_world.js",
+  "scripts": {
+    "start": "node hello_world.js"
+  },
   "dependencies": {
     "ejs": "^2.4.1",
     "expres": "0.0.5",
