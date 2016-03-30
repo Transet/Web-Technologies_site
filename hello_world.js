@@ -6,17 +6,18 @@ var sqlite = require('sqlite3');
 var sqlite3 = sqlite.verbose();
 var db = new sqlite3.Database('sqlite_database/database.sqlite');
 
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function (req, res) {
     res.statusCode = 302; 
-    res.setHeader("Location", "/home");
+    res.setHeader("Location", __dirname + "/home");
     res.end();
 });
 
-app.use('/recources', express.static('recources'));
-
 app.get('/home', function(req, res){
 	db.all('select * from homepage', function(error, data) {
-		res.render('home.ejs', {
+		res.render( 'home.ejs', {
 			title: 'Домашняя страница',
 			data: data,
 		});
@@ -52,7 +53,7 @@ app.get('/persian', function(req, res){
 
 app.get('/siamese', function(req, res){
 	db.all('select * from homepage', function(error, data) {
-	  res.render('siamese.ejs', {
+	  res.render( 'siamese.ejs', {
 			title: 'Сиамцы',
 			data: data,
 		});
@@ -90,6 +91,8 @@ app.post('/del', function(req, res) {
 	})
 });
 
-app.listen(3000, function () {
-  console.log('Listening on port 3000!');
+var PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function () {
+  console.log('Listening on port ' + PORT + '!');
 });
