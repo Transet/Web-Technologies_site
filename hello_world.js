@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
     res.statusCode = 302; 
-    res.setHeader("Location", __dirname + "/home");
+    res.setHeader('Location', 'home');
     res.end();
 });
 
@@ -19,42 +19,6 @@ app.get('/home', function(req, res){
 	db.all('select * from homepage', function(error, data) {
 		res.render( 'home.ejs', {
 			title: 'Домашняя страница',
-			data: data,
-		});
-	});
-});
-
-app.get('/maineCoon', function(req, res){
-	db.all('select * from homepage', function(error, data) {
-	  res.render('maineCoon.ejs', {
-			title: 'Мей куны',
-			data: data,
-		});
-	});
-});
-
-app.get('/british', function(req, res){
-	db.all('select * from homepage', function(error, data) {
-	  res.render('british.ejs', {
-			title: 'Британцы',
-			data: data,
-		});
-	});
-});
-
-app.get('/persian', function(req, res){
-	db.all('select * from homepage', function(error, data) {
-	  res.render('persian.ejs', {
-			title: 'Персы',
-			data: data,
-		});
-	});
-});
-
-app.get('/siamese', function(req, res){
-	db.all('select * from homepage', function(error, data) {
-	  res.render( 'siamese.ejs', {
-			title: 'Сиамцы',
 			data: data,
 		});
 	});

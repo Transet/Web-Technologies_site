@@ -22,6 +22,7 @@
 getLastAddedKey = function(string) {
 	return makeGetRequest('/getLastKey?' + string);
 };
+
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('deleteBreedButton').addEventListener('click', function() {
 		var el = document.getElementById('selectDelItem');

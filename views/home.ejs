@@ -24,7 +24,7 @@
 				<li><a href="/home" >Главная страница </a></li>
 				<% data.forEach(function(datum) {%>
 					<li>
-						<a href="/<%= datum.en_name %>"><%= datum.name %></a>
+						<a href="#<%= datum.en_name %>"><%= datum.name %></a>
 					</li>
 				<% }); %>
 			</ul>
@@ -37,8 +37,6 @@
 					<image class="contentImage" src ="<%= datum.imagepath %>">
 					<h5><%= datum.name %></h5>
 					<span class="catDescription" ><%= datum.smalldescription %>
-					<br/>
-					<span class="contentLink"><a href="/<%= datum.en_name %>">Узнать больше →</a></span></span>
 				</div>
 			<% }); %>
 			<div id="addNeccessaryDivsHere"></div>
