@@ -19,6 +19,24 @@
 	el.appendChild(newOption);
 };
 
+createNewMenuItem =  function(name, en_name) {
+	var newLi = document.createElement('li');
+	newLi.id = 'menu_' + en_name;
+	newLi.innerHTML = '<a href="#' + en_name + '">' + name + '</a>';
+	document.getElementById('navbar').appendChild(newLi);
+};
+
+deleteMenuItem = function(en_name) {
+	var el = document.getElementById('navbar');
+	var children = el.children;
+		for (var i = 0, len = children.length; i < len; i++) {
+			if (children[i].id === 'menu_' + en_name ) {
+				children[i].remove();
+				break;
+			}
+		}
+};
+
 getLastAddedKey = function(string) {
 	return makeGetRequest('/getLastKey?' + string);
 };
@@ -29,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if(el.value === "Выберите породу") {
 			return;
 		}
+		var en_name = el[el.selectedIndex].className;
 		makePostRequest("/del?id="+el.value);
 		var neccessaryClassName = el.options[ el.selectedIndex ].className ;
 		el.options[el.options["selectedIndex"]].remove();
@@ -41,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				break;
 			}
 		}
+		deleteMenuItem(en_name);
 		var addSpoiler = document.getElementById('delSpoiler');
 		var checkbox = addSpoiler.children.item('checkbox');
 		checkbox.checked = false
@@ -67,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		makePostRequest("/add?name="+name.value+"&imagepath="+url.value+
 			"&smalldescription="+breedDescription.value+"&en_name="+enName.value);
 		createNewDiv(name.value,enName.value,breedDescription.value,url.value);
+		createNewMenuItem(name.value, enName.value);
 		var addSpoiler = document.getElementById('addSpoiler');
 		var checkbox = addSpoiler.children.item('checkbox');
 		checkbox.checked = false
