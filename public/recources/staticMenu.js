@@ -1,4 +1,4 @@
-﻿function throttle (callback, limit ) {
+﻿function throttle (callback, limit) {
 	var wait = false;
 	var lastCall = false;
     return function () {
@@ -29,6 +29,6 @@ makeMenuFixed = function() {
 		leftToolbar.style.position = "";
 	}
 };
-var throttledScroll = throttle(makeMenuFixed, 50);
+var throttledScroll = throttle(makeMenuFixed, 10);
 
 window.addEventListener("scroll", throttledScroll);
