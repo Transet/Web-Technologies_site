@@ -34,7 +34,7 @@
 		<div id="mainContentId" class="mainContent">
 			<% data.forEach(function(datum) {%>
 				<div class="content" id="<%= datum.en_name %>">
-					<image class="contentImage" src ="<%= datum.imagepath %>">
+					<image class="contentImage" src ="<%= datum.image %>">
 					<h5><%= datum.name %></h5>
 					<span class="catDescription" ><%= datum.smalldescription %>
 				</div>
@@ -50,7 +50,7 @@
 					<br/>
 					<p><input placeholder="Имя породы на английском" id="breedEn_name" required></p>
 					<br/>
-					<p><input type="url" placeholder="URL изображения" id="site" required></p>
+					<p><input id="breedImageFile" name="myfile" type="file" accept="image/*" required></p>
 					<br/>
 					<p><textarea rows = "10" cols = "70" placeholder="Краткое описание породы" id="breedDescription" required></textarea></p>
 					<br/>

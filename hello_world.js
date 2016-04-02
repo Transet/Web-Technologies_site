@@ -25,16 +25,25 @@ app.get('/home', function(req, res){
 });
 
 app.post('/add', function(req, res) {
-	db.run("INSERT INTO homepage (name,imagepath,smalldescription,en_name) VALUES (?,?,?,?)",req.query.name, req.query.imagepath, req.query.smalldescription, req.query.en_name, function(error) {
-		if(error) console.log(error);
-		else {
-			res.send('ok');
-		}
-	})
+	var body = '';
+    req.on('data', function (data) {
+		console.log('req.on(on)');
+		body += data;
+	});
+	req.on('end', function(){
+		console.log('req.on(end)');
+		db.run("INSERT INTO homepage (name,image,smalldescription,en_name) VALUES (?,?,?,?)",req.query.name, body, req.query.smalldescription, req.query.en_name, function(error) {
+			if(error) console.log(error);
+			else {
+				res.send('ok');
+			}
+		});
+	});
+
 });
 
 app.get('/getLastKey', function(req, res) {
-	var execquery = 'SELECT id FROM homepage WHERE name = "'+req.query.name+'" AND imagepath = "'+req.query.imagepath+'" AND smalldescription = "'+req.query.smalldescription+'" AND en_name = "'+req.query.en_name+'" ';
+	var execquery = 'SELECT id FROM homepage WHERE name = "'+req.query.name+'" AND en_name = "'+req.query.en_name+'" ';
 	db.get(execquery, [] , 
 			function(err, row) {
 				if(err) console.log("error: " + err);
